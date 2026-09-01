@@ -5,7 +5,7 @@ const tripState = {
     destination: ""
 };
 
-const GEMINI_API_KEY = " YOUR_GEMINI_API_KEY_HERE";
+const apiKey = process.env.GEMINI_API_KEY;
 
 window.onload = function() {
     home();
