@@ -164,22 +164,14 @@ The total budget is ₹${tripState.budget} and the overall mood/vibe of the trip
 Format the response clearly using simple headings for Day 1, Day 2, Day 3, along with budget tips and top local foods to try.`;
 
     try {
-        const response = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    contents: [
-                        {
-                            parts: [{ text: prompt }]
-                        }
-                    ]
-                })
-            }
-        );
+        const response = await fetch("/api/gemini", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ prompt })
+        });
+
 
         const data = await response.json();
 
